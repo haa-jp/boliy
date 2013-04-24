@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<TITLE>sitemap_vertical</TITLE>
+</HEAD>
+<BODY>
+<!--siteedit:forEach var="top" items="${sitenav.tops}"-->
+<table border="1">
+  <tbody>
+    <tr>
+      <td align="center">
+ <!--siteedit:choose--><!--siteedit:when test="${top.item.group}"-->
+        <span class="${sitenav.navclass}" style="${sitenav.navstyle}"><b>${top.item.label}</b></span>
+ <!--/siteedit:when--><!--siteedit:otherwise-->
+        <a href="${top.item.href}" class="${sitenav.navclass}" style="${sitenav.navstyle}">${top.item.label}</a>
+ <!--/siteedit:otherwise--><!--/siteedit:choose-->
+      </td>
+    </tr>
+<!--siteedit:forEach var="node" items="${top.children}"-->
+    <tr>
+      <td>
+ <!--siteedit:choose--><!--siteedit:when test="${node.item.group}"-->
+        <span class="${sitenav.navclass}" style="${sitenav.navstyle}"><b>${node.item.label}</b></span>
+ <!--/siteedit:when--><!--siteedit:otherwise-->
+        <a href="${node.item.href}" class="${sitenav.navclass}" style="${sitenav.navstyle}">${node.item.label}</a>
+ <!--/siteedit:otherwise--><!--/siteedit:choose-->
+<!--siteedit:if test="${0 < node.childcount}"-->
+        <ul>
+<!--siteedit:forEach var="node2" items="${node.children}"-->
+          <li>
+ <!--siteedit:choose--><!--siteedit:when test="${node2.item.group}"-->
+          <span class="${sitenav.navclass}" style="${sitenav.navstyle}"><b>${node2.item.label}</b></span>
+ <!--/siteedit:when--><!--siteedit:otherwise-->
+          <a href="${node2.item.href}" class="${sitenav.navclass}" style="${sitenav.navstyle}">${node2.item.label}</a>
+ <!--/siteedit:otherwise--><!--/siteedit:choose-->
+<!--siteedit:if test="${0 < node2.childcount}"-->
+          <ul>
+<!--siteedit:forEach var="node3" items="${node2.children}"-->
+            <li>
+ <!--siteedit:choose--><!--siteedit:when test="${node3.item.group}"-->
+            <span class="${sitenav.navclass}" style="${sitenav.navstyle}"><b>${node3.item.label}</b></span>
+ <!--/siteedit:when--><!--siteedit:otherwise-->
+            <a href="${node3.item.href}" class="${sitenav.navclass}" style="${sitenav.navstyle}">${node3.item.label}</a>
+ <!--/siteedit:otherwise--><!--/siteedit:choose-->
+<!--siteedit:if test="${0 < node3.childcount}"-->
+            <ul>
+<!--siteedit:forEach var="node4" items="${node3.children}"-->
+              <li>
+ <!--siteedit:choose--><!--siteedit:when test="${node4.item.group}"-->
+              <span class="${sitenav.navclass}" style="${sitenav.navstyle}"><b>${node4.item.label}</b></span>
+ <!--/siteedit:when--><!--siteedit:otherwise-->
+              <a href="${node4.item.href}" class="${sitenav.navclass}" style="${sitenav.navstyle}">${node4.item.label}</a>
+ <!--/siteedit:otherwise--><!--/siteedit:choose-->
+              </li>
+<!--/siteedit:forEach-->
+            </ul>
+<!--/siteedit:if-->
+            </li>
+<!--/siteedit:forEach-->
+          </ul>
+<!--/siteedit:if-->
+          </li>
+<!--/siteedit:forEach-->
+        </ul>
+<!--/siteedit:if-->
+      </td>
+    </tr>
+<!--/siteedit:forEach-->
+  </tbody>
+</table>
+<!--/siteedit:forEach-->
+</BODY>
+</HTML>
